@@ -2,7 +2,8 @@ import sys
 
 from pathlib import Path
 from colorama import Fore, Style
-
+ 
+ 
 def add_contact(args, contacts):
     name, phone = args
     contacts[name] = phone
