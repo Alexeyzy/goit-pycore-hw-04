@@ -11,11 +11,15 @@ def show_tree(directory, space):
         else:
             print(space + Fore.GREEN + str(item.name),Style.RESET_ALL)
 
-space = "  "               
-directory = Path(sys.argv[1])
-
-if not directory.exists():
-    print(f"Такого шляху \"{directory}\" не існує.")
+space = "  " 
+if len(sys.argv) > 1:
+    directory = Path(sys.argv[1])
+    if not directory.exists():
+        print(f"Такого шляху \"{directory}\" не існує.")
+    else:
+        print(Fore.BLUE + str(directory.name + "/" ),Style.RESET_ALL)  
+        show_tree(directory, space) 
 else:
-    print(Fore.BLUE + str(directory.name + "/" ),Style.RESET_ALL)  
-    show_tree(directory, space)
+    print('No arguments')            
+
+
